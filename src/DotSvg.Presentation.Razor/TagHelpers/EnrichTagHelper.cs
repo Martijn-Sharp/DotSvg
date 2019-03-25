@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -25,6 +26,12 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                 var value = property.GetValue(data);
                 if (value == null)
                     continue;
+
+                if (value is Enum)
+                    value = Enum.GetName(value.GetType(), value) ?? string.Empty;
+
+                if(value is string valueString)
+                    value = char.ToLowerInvariant(valueString[0]) + valueString.Substring(1);
 
                 if (property.CustomAttributes.Any(x => x.AttributeType == typeof(DisplayNameAttribute)))
                 {
