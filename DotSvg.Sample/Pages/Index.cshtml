@@ -1,0 +1,21 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="svg-box">
+    <svg enrich="Model.Svg">
+        <circle enrich="Model.Circle"></circle>
+    </svg>
+</div>
+
+<div class="svg-box">
+    <svg enrich="Model.Svg">
+        @*<circle enrich="Model.Circle"></circle>*@
+        @foreach (var path in Model.Paths)
+        {
+            <path enrich="path"></path>
+        }
+    </svg>
+</div>
