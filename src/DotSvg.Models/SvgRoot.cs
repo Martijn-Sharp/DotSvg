@@ -1,7 +1,9 @@
-﻿namespace DotSvg.Models
+﻿using System.Collections.Generic;
+
+namespace DotSvg.Models
 {
     public class SvgRoot
     {
-        public string ViewBox { get; set; }
+        public IEnumerable<float> ViewBox { get; set; }
     }
 }

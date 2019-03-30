@@ -12,15 +12,15 @@ namespace DotSvg.Sample.Pages
     {
         public void OnGet()
         {
-            Svg = new SvgRoot { ViewBox = "-1 -1 2 2" };
+            Svg = new SvgRoot { ViewBox = new float[] { -1, -1, 2, 2 } };
 
             Circle = new Circle
             {
-                XAxisCoordinate = "0",
-                YAxisCoordinate = "0",
-                Radius = "0.9",
+                XAxisCoordinate = 0,
+                YAxisCoordinate = 0,
+                Radius = 0.9f,
                 Stroke = "grey",
-                StrokeWidth = "0.2",
+                StrokeWidth = 0.2f,
                 Fill = "transparent"
             };
 
@@ -31,15 +31,14 @@ namespace DotSvg.Sample.Pages
                 .Arc(0.8f, 0.8f, 0, false, false, 0, 0.8f)
                 .Arc(0.1f, 0.1f, 0, true, false, 0, 1)
                 .Build();
-
-            var settings = new PathDefinitionBuilderSettings { Pretty = true };
+            
             var greenPath = new PathDefinitionBuilder()
                 .MoveTo(-1, 0)
                 .Arc(1, 1, 0, false, true, 0, -1)
                 .Arc(0.1f, 0.1f, 0, true, true, 0, -0.8f)
                 .Arc(0.8f, 0.8f, 0, false, false, -0.8f, 0)
                 .Arc(0.1f, 0.1f, 0, true, false, -1, 0)
-                .Build(settings);
+                .Build();
             
             Paths = new List<Path>
             {
@@ -49,7 +48,7 @@ namespace DotSvg.Sample.Pages
                 new Path { Fill = "green", Definition = greenPath }
             };
 
-            Text = new Text { X = "0", Y = "0", TextLength = "10", LengthAdjust = LengthAdjustOptions.SpacingAndGlyphs};
+            Text = new Text { X = 0, Y = 0, TextLength = 10, LengthAdjust = LengthAdjustOptions.SpacingAndGlyphs};
         }
 
         public SvgRoot Svg { get; set; }

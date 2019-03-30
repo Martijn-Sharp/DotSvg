@@ -2,7 +2,7 @@
 {
     public struct Angle
     {
-        public Angle(float number, UnitOptions unit)
+        public Angle(float number, UnitOptions unit = UnitOptions.Degrees)
         {
             Number = number;
             Unit = unit;
@@ -18,5 +18,7 @@
             Grads,
             Radians
         }
+
+        public static implicit operator Angle(float number) => new Angle(number);
     }
 }

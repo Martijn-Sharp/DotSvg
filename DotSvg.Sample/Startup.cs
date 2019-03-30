@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotSvg.Domain;
+using DotSvg.Domain.Features.Conversion;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,7 @@ namespace DotSvg.Sample
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<ISvgDataTypeConverter, SvgDataTypeConverter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

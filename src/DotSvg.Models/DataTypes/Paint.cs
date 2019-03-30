@@ -46,6 +46,8 @@ namespace DotSvg.Models.DataTypes
 
         public string Value { get; }
 
+        public static implicit operator Paint(string value) => new Paint(value);
+
         public enum ContextOptions
         {
             Fill,

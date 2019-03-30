@@ -13,5 +13,7 @@ namespace DotSvg.Models.DataTypes
         }
 
         public float Number { get; }
+
+        public static implicit operator Opacity(float number) => new Opacity(number);
     }
 }

@@ -17,5 +17,7 @@ namespace DotSvg.Models.DataTypes
         }
 
         public string Value { get; }
+
+        public static implicit operator Name(string value) => new Name(value);
     }
 }

@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel;
+using DotSvg.Models.DataTypes;
 using DotSvg.Models.Traits;
 
 namespace DotSvg.Models
 {
     public abstract class SvgElement : IPresentation
     {
-        public string Fill { get; set; }
+        public Paint Fill { get; set; }
 
-        public string Stroke { get; set; }
+        public Paint Stroke { get; set; }
 
         [DisplayName("stroke-width")]
-        public string StrokeWidth { get; set; }
+        public Length StrokeWidth { get; set; }
     }
 }
