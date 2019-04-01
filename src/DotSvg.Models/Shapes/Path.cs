@@ -9,6 +9,6 @@ namespace DotSvg.Models.Shapes
         public string Definition { get; set; }
 
         /// <summary>This lets specify the total length for the path, in user units.</summary>
-        public float PathLength { get; set; }
+        public float? PathLength { get; set; }
     }
 }

@@ -59,39 +59,36 @@ namespace DotSvg.Presentation.Razor.TagHelpers
         {
             switch (data)
             {
-                case Enum enumeration:
-                    var enumerationValue = Enum.GetName(enumeration.GetType(), enumeration);
-                    return char.ToLowerInvariant(enumerationValue[0]) + enumerationValue.Substring(1);
-                case string value when value.Length > 0:
-                    return char.ToLowerInvariant(value[0]) + value.Substring(1);
-                case Angle angle:
-                    return Converter.Angle(angle);
-                case Frequency frequency:
-                    return Converter.Frequency(frequency);
-                case int integer:
-                    return Converter.Integer(integer);
-                case Length length:
-                    return Converter.Length(length);
-                case Name name:
-                    return Converter.Name(name);
+                // Order is approximately the popularity per type
                 case float number:
                     return Converter.Number(number);
-                case Opacity opacity:
-                    return Converter.OpacityValue(opacity);
-                case Paint paint:
-                    return Converter.Paint(paint);
-                case Time time:
-                    return Converter.Time(time);
-                case TransformList transformList:
-                    return Converter.TransformList(transformList);
+                case Enum enumeration:
+                    // TODO: some enumerations have dashes in them, CRAP!
+                    var enumerationValue = Enum.GetName(enumeration.GetType(), enumeration);
+                    return char.ToLowerInvariant(enumerationValue[0]) + enumerationValue.Substring(1);
+                case Length length:
+                    return Converter.Length(length);
+                case string value when value.Length > 0:
+                    return char.ToLowerInvariant(value[0]) + value.Substring(1);
                 case IEnumerable enumerable:
                     var stringBuilder = new StringBuilder();
                     foreach (var item in enumerable)
                         stringBuilder.Append(Convert(item) + " ");
-
                     return stringBuilder.ToString().Trim();
+                case TimeSpan span:
+                    return Converter.ClockValue(span);
+                case Angle angle:
+                    return Converter.Angle(angle);
+                case Frequency frequency:
+                    return Converter.Frequency(frequency);
+                case Opacity opacity:
+                    return Converter.OpacityValue(opacity);
+                case Time time:
+                    return Converter.Time(time);
+                case TransformList transformList:
+                    return Converter.TransformList(transformList);
                 default:
-                    return Converter.Anything(data);
+                    return data?.ToString();
             }
         }
     }

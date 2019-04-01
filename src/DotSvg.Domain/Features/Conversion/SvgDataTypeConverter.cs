@@ -29,10 +29,19 @@ namespace DotSvg.Domain.Features.Conversion
 
             return Number(angle.Number) + angleUnit;
         }
+        
+        public string ClockValue(TimeSpan span)
+        {
+            var stringBuilder = new StringBuilder();
+            if (span.TotalHours > 0)
+                stringBuilder.Append($"{(int) span.TotalHours}:");
 
-        public string Anything(object anything) => anything.ToString();
+            stringBuilder.Append($"{span.Minutes:00}:{span.Seconds:00}");
+            if (span.Milliseconds > 0)
+                stringBuilder.Append($".{span.Milliseconds.ToString("000").TrimEnd('0')}");
 
-        public string ClockValue() => throw new NotImplementedException();
+            return stringBuilder.ToString();
+        }
 
         public string Frequency(Frequency frequency)
         {
@@ -51,9 +60,7 @@ namespace DotSvg.Domain.Features.Conversion
 
             return Number(frequency.Number) + frequencyUnit;
         }
-
-        public string Integer(int integer) => integer.ToString();
-
+        
         public string Length(Length length)
         {
             string lengthUnit;
@@ -65,31 +72,18 @@ namespace DotSvg.Domain.Features.Conversion
                 case Models.DataTypes.Length.UnitOptions.Percentage:
                     lengthUnit = "%";
                     break;
-                case Models.DataTypes.Length.UnitOptions.Em:
-                case Models.DataTypes.Length.UnitOptions.Ex:
-                case Models.DataTypes.Length.UnitOptions.Px:
-                case Models.DataTypes.Length.UnitOptions.In:
-                case Models.DataTypes.Length.UnitOptions.Cm:
-                case Models.DataTypes.Length.UnitOptions.Mm:
-                case Models.DataTypes.Length.UnitOptions.Pt:
-                case Models.DataTypes.Length.UnitOptions.Pc:
+                default:
                     lengthUnit = Enum.GetName(typeof(Length.UnitOptions), length.Unit).ToLower();
                     break;
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
 
             return Number(length.Number) + lengthUnit;
         }
-
-        public string Name(Name name) => name.Value;
         
         public string Number(float number) => number.ToString(Culture);
 
         public string OpacityValue(Opacity opacity) => Number(opacity.Number);
-
-        public string Paint(Paint paint) => paint.Value;
-
+        
         public string Percentage(float number) => Number(number) + "%";
 
         public string Time(Time time)
