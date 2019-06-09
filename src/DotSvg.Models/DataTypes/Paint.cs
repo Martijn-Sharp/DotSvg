@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Drawing;
 using DotSvg.Models.Enumerations;
 
 namespace DotSvg.Models.DataTypes
