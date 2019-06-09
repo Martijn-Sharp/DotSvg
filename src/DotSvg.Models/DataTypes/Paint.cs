@@ -24,11 +24,8 @@ namespace DotSvg.Models.DataTypes
 
             return new Paint($"Url({reference} {Enum.GetName(typeof(Css3ColorCodes), color.Value)}");
         }
-
-        public static Paint Code(Css3ColorCodes code)
-        {
-            return new Paint(Enum.GetName(typeof(Css3ColorCodes), code));
-        }
+        
+        public static Paint Color(Color color) => new Paint(color.Value);
 
         public static Paint Context(ContextOptions context)
         {
@@ -50,7 +47,7 @@ namespace DotSvg.Models.DataTypes
 
         public string Value { get; }
 
-        public static implicit operator Paint(Css3ColorCodes colorCode) => Code(colorCode);
+        public static implicit operator Paint(Color color) => Color(color);
 
         public static implicit operator Paint(ContextOptions contextOption) => Context(contextOption);
 
