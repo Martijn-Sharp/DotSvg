@@ -114,5 +114,10 @@ namespace DotSvg.Domain.Features.Conversion
             
             return $"{transformList.Function}({stringBuilder.ToString().Trim()})";
         }
+
+        public string ViewBox(ViewBox viewBox)
+        {
+            return $"{Number(viewBox.MinX)} {Number(viewBox.MinY)} {Number(viewBox.Width)} {Number(viewBox.Height)}";
+        }
     }
 }

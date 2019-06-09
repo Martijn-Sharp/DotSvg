@@ -22,5 +22,7 @@ namespace DotSvg.Domain.Features.Conversion
         string Time(Time time);
 
         string TransformList(TransformList transformList);
+
+        string ViewBox(ViewBox viewBox);
     }
 }

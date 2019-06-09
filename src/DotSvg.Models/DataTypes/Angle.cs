@@ -12,13 +12,18 @@
 
         public UnitOptions Unit { get; }
 
+        public static implicit operator Angle(float number) => new Angle(number);
+
+        public override string ToString()
+        {
+            return $"{Number} {Unit}";
+        }
+
         public enum UnitOptions
         {
             Degrees,
             Grads,
             Radians
         }
-
-        public static implicit operator Angle(float number) => new Angle(number);
     }
 }

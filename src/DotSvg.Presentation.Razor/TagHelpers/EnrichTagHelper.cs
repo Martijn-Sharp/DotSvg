@@ -87,6 +87,8 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     return Converter.Time(time);
                 case TransformList transformList:
                     return Converter.TransformList(transformList);
+                case ViewBox viewBox:
+                    return Converter.ViewBox(viewBox);
                 default:
                     return data?.ToString();
             }

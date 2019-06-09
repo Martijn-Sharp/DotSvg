@@ -12,6 +12,11 @@
 
         public UnitOptions Unit { get; }
 
+        public override string ToString()
+        {
+            return $"{Number} {Unit}";
+        }
+
         public enum UnitOptions
         {
             Hertz,

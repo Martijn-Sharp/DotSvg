@@ -15,5 +15,10 @@ namespace DotSvg.Models.DataTypes
         public float Number { get; }
 
         public static implicit operator Opacity(float number) => new Opacity(number);
+
+        public override string ToString()
+        {
+            return Number.ToString();
+        }
     }
 }

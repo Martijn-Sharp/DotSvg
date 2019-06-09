@@ -14,7 +14,7 @@ namespace DotSvg.Sample.Pages
     {
         public void OnGet()
         {
-            Svg = new SvgRoot { ViewBox = new float[] { -1, -1, 2, 2 } };
+            Svg = new SvgRoot { ViewBox = new ViewBox(-1, -1, 2, 2) };
 
             Circle = new Circle
             {
