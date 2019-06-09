@@ -21,7 +21,7 @@ namespace DotSvg.Sample.Pages
                 XAxisCoordinate = 0,
                 YAxisCoordinate = 0,
                 Radius = 0.9f,
-                Stroke = Color.Code(X11Colors.grey),
+                Stroke = Paint.Color(X11Colors.grey),
                 StrokeWidth = 0.2f,
                 Fill = Color.Transparent
             };
@@ -44,10 +44,10 @@ namespace DotSvg.Sample.Pages
             
             Paths = new List<Path>
             {
-                new Path { Fill = Color.Code(X11Colors.blue), Definition = "M0,-1 A1,1,0,0,1,1,0 A0.1,0.1,0,1,1,0.8,0 A0.8,0.8,0,0,0,0,-0.8 A0.1,0.1,0,1,0,0,-1"},
-                new Path { Fill = Color.Code(X11Colors.yellow), Definition = "M1,0 A1,1,0,0,1,0,1 A0.1,0.1,0,1,1,0,0.8 A0.8,0.8,0,0,0,0.8,0 A0.1,0.1,0,1,0,1,0"},
-                new Path { Fill = Color.Code(X11Colors.red), Definition = redPath },
-                new Path { Fill = Color.Code(X11Colors.green), Definition = greenPath }
+                new Path { Fill = Paint.Color(X11Colors.blue), Definition = "M0,-1 A1,1,0,0,1,1,0 A0.1,0.1,0,1,1,0.8,0 A0.8,0.8,0,0,0,0,-0.8 A0.1,0.1,0,1,0,0,-1"},
+                new Path { Fill = Paint.Color(X11Colors.yellow), Definition = "M1,0 A1,1,0,0,1,0,1 A0.1,0.1,0,1,1,0,0.8 A0.8,0.8,0,0,0,0.8,0 A0.1,0.1,0,1,0,1,0"},
+                new Path { Fill = Paint.Color(X11Colors.red), Definition = redPath },
+                new Path { Fill = Paint.Color(X11Colors.green), Definition = greenPath }
             };
 
             Text = new Text { X = 0, Y = 0, TextLength = 10, LengthAdjust = LengthAdjustOptions.SpacingAndGlyphs};
