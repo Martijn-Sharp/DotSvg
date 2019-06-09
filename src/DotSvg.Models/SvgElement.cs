@@ -43,7 +43,7 @@ namespace DotSvg.Models
         public Paint? Fill { get; set; }
 
         [DisplayName("fill-opacity")]
-        public CompositeProperty<Percentage, ZeroToOne> FillOpacity { get; set; }
+        public CompositeProperty<ZeroToOne, Percentage>? FillOpacity { get; set; }
 
         [DisplayName("fill-rule")]
         public RuleOptions? FillRule { get; set; }
@@ -54,7 +54,7 @@ namespace DotSvg.Models
         public Color? FloodColor { get; set; }
 
         [DisplayName("flood-opacity")]
-        public string FloodOpacity { get; set; }
+        public CompositeProperty<ZeroToOne, Percentage>? FloodOpacity { get; set; }
 
         [DisplayName("font-family")]
         public string FontFamily { get; set; }
@@ -63,7 +63,7 @@ namespace DotSvg.Models
         public string FontSize { get; set; }
 
         [DisplayName("font-size-adjust")]
-        public string FontSizeAdjust { get; set; }
+        public CompositeProperty<float, NoneKeyword, InheritKeyword>? FontSizeAdjust { get; set; }
 
         [DisplayName("font-stretch")]
         public string FontStretch { get; set; }

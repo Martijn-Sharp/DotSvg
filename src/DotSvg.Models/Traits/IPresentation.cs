@@ -33,7 +33,7 @@ namespace DotSvg.Models.Traits
 
         Paint? Fill { get; set; }
 
-        CompositeProperty<Percentage, ZeroToOne> FillOpacity { get; set; }
+        CompositeProperty<ZeroToOne, Percentage>? FillOpacity { get; set; }
 
         RuleOptions? FillRule { get; set; }
 
@@ -41,15 +41,13 @@ namespace DotSvg.Models.Traits
 
         Color? FloodColor { get; set; }
 
-        // TODO: get angry with idiot wildwestweb values later
-        string FloodOpacity { get; set; }
+        CompositeProperty<ZeroToOne, Percentage>? FloodOpacity { get; set; }
 
         string FontFamily { get; set; }
 
         string FontSize { get; set; }
 
-        // TODO: get angry with idiot wildwestweb values later
-        string FontSizeAdjust { get; set; }
+        CompositeProperty<float, NoneKeyword, InheritKeyword>? FontSizeAdjust { get; set; }
 
         string FontStretch { get; set; }
 

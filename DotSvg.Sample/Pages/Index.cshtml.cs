@@ -4,7 +4,6 @@ using DotSvg.Models;
 using DotSvg.Models.DataTypes;
 using DotSvg.Models.Enumerations;
 using DotSvg.Models.Shapes;
-using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Text;
 using DotSvg.Models.Text.Enumerations;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -25,7 +24,7 @@ namespace DotSvg.Sample.Pages
                 Stroke = Paint.Color(X11Colors.grey),
                 StrokeWidth = 0.2f,
                 Fill = Color.Transparent,
-                FillOpacity = new ZeroToOne(0.4f)
+                FontSizeAdjust = Keyword.Inherit
             };
 
             var redPath = new PathDefinitionBuilder()
