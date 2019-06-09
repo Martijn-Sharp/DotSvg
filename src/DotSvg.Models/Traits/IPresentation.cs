@@ -32,8 +32,7 @@ namespace DotSvg.Models.Traits
 
         Paint? Fill { get; set; }
 
-        // TODO: get angry with idiot wildwestweb values later
-        string FillOpacity { get; set; }
+        IFillOpacity FillOpacity { get; set; }
 
         RuleOptions? FillRule { get; set; }
 

@@ -23,7 +23,8 @@ namespace DotSvg.Sample.Pages
                 Radius = 0.9f,
                 Stroke = Paint.Color(X11Colors.grey),
                 StrokeWidth = 0.2f,
-                Fill = Color.Transparent
+                Fill = Color.Transparent,
+                FillOpacity = new ZeroToOne(0.4f)
             };
 
             var redPath = new PathDefinitionBuilder()

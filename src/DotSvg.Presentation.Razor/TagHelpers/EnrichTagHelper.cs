@@ -70,6 +70,8 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     return Converter.Length(length);
                 case string value when value.Length > 0:
                     return char.ToLowerInvariant(value[0]) + value.Substring(1);
+                case Percentage percentage:
+                    return Converter.Percentage(percentage.Number);
                 case IEnumerable enumerable:
                     var stringBuilder = new StringBuilder();
                     foreach (var item in enumerable)
@@ -83,6 +85,8 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     return Converter.Frequency(frequency);
                 case Opacity opacity:
                     return Converter.OpacityValue(opacity);
+                case ZeroToOne zeroToOne:
+                    return Converter.Number(zeroToOne.Number);
                 case Time time:
                     return Converter.Time(time);
                 case TransformList transformList:

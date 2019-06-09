@@ -42,7 +42,7 @@ namespace DotSvg.Models
         public Paint? Fill { get; set; }
 
         [DisplayName("fill-opacity")]
-        public string FillOpacity { get; set; }
+        public IFillOpacity FillOpacity { get; set; }
 
         [DisplayName("fill-rule")]
         public RuleOptions? FillRule { get; set; }
