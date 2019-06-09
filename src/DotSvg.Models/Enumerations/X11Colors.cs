@@ -2,7 +2,7 @@
 
 namespace DotSvg.Models.Enumerations
 {
-    public enum Css3ColorCodes
+    public enum X11Colors
     {
         aliceblue,
 		antiquewhite,

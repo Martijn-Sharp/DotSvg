@@ -55,12 +55,14 @@ namespace DotSvg.Models.DataTypes
             return new Color($"rgb({red}{pc},{green}{pc},{blue}{pc})");
         }
 
-        public static Color Code(Css3ColorCodes code)
+        public static Color Transparent => new Color("transparent");
+
+        public static Color Code(X11Colors code)
         {
-            return new Color(Enum.GetName(typeof(Css3ColorCodes), code));
+            return new Color(Enum.GetName(typeof(X11Colors), code));
         }
 
-        public static implicit operator Color(Css3ColorCodes colorCode) => Code(colorCode);
+        public static implicit operator Color(X11Colors colorCode) => Code(colorCode);
 
         public override string ToString()
         {

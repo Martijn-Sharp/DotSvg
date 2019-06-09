@@ -11,7 +11,7 @@ namespace DotSvg.Models.DataTypes
             Value = value;
         }
         
-        public static Paint Url(string reference, Css3ColorCodes? color = null)
+        public static Paint Url(string reference, X11Colors? color = null)
         {
             if(string.IsNullOrEmpty(reference))
                 throw new ArgumentException($"{nameof(reference)} can't be null or empty");
@@ -22,7 +22,7 @@ namespace DotSvg.Models.DataTypes
             if(!color.HasValue)
                 return new Paint($"Url({reference}");
 
-            return new Paint($"Url({reference} {Enum.GetName(typeof(Css3ColorCodes), color.Value)}");
+            return new Paint($"Url({reference} {Enum.GetName(typeof(X11Colors), color.Value)}");
         }
         
         public static Paint Color(Color color) => new Paint(color.Value);
