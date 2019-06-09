@@ -13,7 +13,7 @@ namespace DotSvg.Models.DataTypes
         // SVG supports CSS2 fully, CSS3 in the future so NO RGBA
         private static readonly string HexRegEx = "^#[0-9a-fA-F]{6}$|#[0-9a-fA-F]{4}$|#[0-9a-fA-F]{3}$";
 
-        public Color(string value)
+        private Color(string value)
         {
             Value = value;
         }
@@ -60,7 +60,7 @@ namespace DotSvg.Models.DataTypes
             return new Color(Enum.GetName(typeof(Css3ColorCodes), code));
         }
 
-        public static implicit operator Color(string value) => new Color(value);
+        public static implicit operator Color(Css3ColorCodes colorCode) => Code(colorCode);
 
         public override string ToString()
         {

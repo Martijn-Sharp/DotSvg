@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using DotSvg.Models.Enumerations;
 
 namespace DotSvg.Models.DataTypes
 {
@@ -10,7 +11,7 @@ namespace DotSvg.Models.DataTypes
             Value = value;
         }
         
-        public Paint Url(string reference, string color = null)
+        public static Paint Url(string reference, Css3ColorCodes? color = null)
         {
             if(string.IsNullOrEmpty(reference))
                 throw new ArgumentException($"{nameof(reference)} can't be null or empty");
@@ -18,15 +19,18 @@ namespace DotSvg.Models.DataTypes
             if (!reference.StartsWith("#"))
                 reference = "#" + reference;
 
-            if(string.IsNullOrEmpty(color))
+            if(!color.HasValue)
                 return new Paint($"Url({reference}");
 
-            return new Paint($"Url({reference} {color}");
+            return new Paint($"Url({reference} {Enum.GetName(typeof(Css3ColorCodes), color.Value)}");
         }
 
-        public Paint Color(string color) => new Paint(color);
+        public static Paint Code(Css3ColorCodes code)
+        {
+            return new Paint(Enum.GetName(typeof(Css3ColorCodes), code));
+        }
 
-        public Paint Context(ContextOptions context)
+        public static Paint Context(ContextOptions context)
         {
             string contextOption;
             switch (context)
@@ -46,7 +50,9 @@ namespace DotSvg.Models.DataTypes
 
         public string Value { get; }
 
-        public static implicit operator Paint(string value) => new Paint(value);
+        public static implicit operator Paint(Css3ColorCodes colorCode) => Code(colorCode);
+
+        public static implicit operator Paint(ContextOptions contextOption) => Context(contextOption);
 
         public override string ToString()
         {
