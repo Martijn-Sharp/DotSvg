@@ -45,12 +45,12 @@ namespace DotSvg.Models
         public string FillOpacity { get; set; }
 
         [DisplayName("fill-rule")]
-        public RuleOptions FillRule { get; set; }
+        public RuleOptions? FillRule { get; set; }
 
         public string Filter { get; set; }
 
         [DisplayName("flood-color")]
-        public Color FloodColor { get; set; }
+        public Color? FloodColor { get; set; }
 
         [DisplayName("flood-opacity")]
         public string FloodOpacity { get; set; }
@@ -74,7 +74,7 @@ namespace DotSvg.Models
         public string FontWeight { get; set; }
 
         [DisplayName("image-rendering")]
-        public RenderingOptions ImageRendering { get; set; }
+        public RenderingOptions? ImageRendering { get; set; }
 
         public Paint? Stroke { get; set; }
 

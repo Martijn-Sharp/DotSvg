@@ -35,11 +35,11 @@ namespace DotSvg.Models.Traits
         // TODO: get angry with idiot wildwestweb values later
         string FillOpacity { get; set; }
 
-        RuleOptions FillRule { get; set; }
+        RuleOptions? FillRule { get; set; }
 
         string Filter { get; set; }
 
-        Color FloodColor { get; set; }
+        Color? FloodColor { get; set; }
 
         // TODO: get angry with idiot wildwestweb values later
         string FloodOpacity { get; set; }
@@ -58,7 +58,7 @@ namespace DotSvg.Models.Traits
         // TODO: get angry with idiot wildwestweb values later
         string FontWeight { get; set; }
 
-        RenderingOptions ImageRendering { get; set; }
+        RenderingOptions? ImageRendering { get; set; }
 
         Paint? Stroke { get; set; }
 
