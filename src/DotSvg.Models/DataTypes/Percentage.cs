@@ -1,8 +1,6 @@
-﻿using DotSvg.Models.Traits;
-
-namespace DotSvg.Models.DataTypes
+﻿namespace DotSvg.Models.DataTypes
 {
-    public struct Percentage : IFillOpacity
+    public struct Percentage
     {
         public Percentage(float number)
         {

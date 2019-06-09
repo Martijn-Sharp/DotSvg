@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using DotSvg.Domain.Features.Conversion;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.SpecialProperties;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace DotSvg.Presentation.Razor.TagHelpers
@@ -93,6 +94,8 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     return Converter.TransformList(transformList);
                 case ViewBox viewBox:
                     return Converter.ViewBox(viewBox);
+                case ICompositeProperty property:
+                    return Convert(property.Value);
                 default:
                     return data?.ToString();
             }

@@ -4,6 +4,7 @@ using DotSvg.Models;
 using DotSvg.Models.DataTypes;
 using DotSvg.Models.Enumerations;
 using DotSvg.Models.Shapes;
+using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Text;
 using DotSvg.Models.Text.Enumerations;
 using Microsoft.AspNetCore.Mvc.RazorPages;

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Traits;
 using DotSvg.Models.Traits.Enumerations;
 
@@ -42,7 +43,7 @@ namespace DotSvg.Models
         public Paint? Fill { get; set; }
 
         [DisplayName("fill-opacity")]
-        public IFillOpacity FillOpacity { get; set; }
+        public CompositeProperty<Percentage, ZeroToOne> FillOpacity { get; set; }
 
         [DisplayName("fill-rule")]
         public RuleOptions? FillRule { get; set; }

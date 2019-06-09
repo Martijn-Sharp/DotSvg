@@ -1,9 +1,8 @@
 ﻿using System;
-using DotSvg.Models.Traits;
 
 namespace DotSvg.Models.DataTypes
 {
-    public struct ZeroToOne : IFillOpacity
+    public struct ZeroToOne
     {
         public ZeroToOne(float number)
         {
