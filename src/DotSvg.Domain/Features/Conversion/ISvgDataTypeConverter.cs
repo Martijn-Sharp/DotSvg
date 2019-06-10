@@ -1,5 +1,6 @@
 ﻿using System;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.DataTypes.BasicShapes;
 
 namespace DotSvg.Domain.Features.Conversion
 {

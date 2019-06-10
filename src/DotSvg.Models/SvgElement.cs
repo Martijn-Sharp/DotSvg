@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.DataTypes.BasicShapes;
 using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Traits;
 using DotSvg.Models.Traits.Enumerations;
@@ -17,7 +18,7 @@ namespace DotSvg.Models
         public string BaselineShift { get; set; }
 
         [DisplayName("clip-path")]
-        public CompositeProperty<Uri, IBasicShape, InheritKeyword> ClipPath { get; set; }
+        public CompositeProperty<Uri, IBasicShape, InheritKeyword>? ClipPath { get; set; }
 
         [DisplayName("clip-rule")]
         public RuleOptions? ClipRule { get; set; }

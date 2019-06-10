@@ -1,5 +1,6 @@
 ﻿using System;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.DataTypes.BasicShapes;
 using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Traits.Enumerations;
 
@@ -13,7 +14,7 @@ namespace DotSvg.Models.Traits
         /// <remarks>This property is going to be deprecated, I'll leave the string-type as it is</remarks>
         string BaselineShift { get; set; }
 
-        CompositeProperty<Uri, IBasicShape, InheritKeyword> ClipPath { get; set; }
+        CompositeProperty<Uri, IBasicShape, InheritKeyword>? ClipPath { get; set; }
 
         RuleOptions? ClipRule { get; set; }
 

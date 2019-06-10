@@ -32,8 +32,7 @@
             Cm,
             Mm,
             Pt,
-            Pc,
-            Percentage
+            Pc
         }
     }
 }

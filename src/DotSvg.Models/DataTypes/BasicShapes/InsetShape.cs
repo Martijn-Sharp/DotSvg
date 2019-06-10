@@ -1,26 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Collections.Generic;
 using DotSvg.Models.Enumerations;
 
-namespace DotSvg.Models.DataTypes
+namespace DotSvg.Models.DataTypes.BasicShapes
 {
-    public interface IBasicShape
-    {
-        string Function { get; }
-
-        BoxOptions? GeometryBox { get; }
-
-        IEnumerable<(string Function, float Value)> Parameters { get; }
-    }
-
     public struct InsetShape : IBasicShape
     {
         public InsetShape(float top, float right, float bottom, float left, float? borderRadius, BoxOptions? geometryBox)
         {
             GeometryBox = geometryBox;
-            var instructions = new List<(string, float)>
+            var parameters = new List<(string, float)>
             {
                 (null, top),
                 (null, right),
@@ -29,9 +17,9 @@ namespace DotSvg.Models.DataTypes
             };
 
             if(borderRadius.HasValue)
-                instructions.Add(("round", borderRadius.Value));
+                parameters.Add(("round", borderRadius.Value));
 
-            Parameters = instructions;
+            Parameters = parameters;
         }
 
         public InsetShape(float one, float two, float? borderRadius, BoxOptions? geometryBox) 

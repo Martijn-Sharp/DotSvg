@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.DataTypes.BasicShapes;
 using DotSvg.Models.Enumerations;
 
 namespace DotSvg.Domain.Features.Conversion
@@ -88,9 +89,6 @@ namespace DotSvg.Domain.Features.Conversion
             {
                 case Models.DataTypes.Length.UnitOptions.Unspecified:
                     lengthUnit = string.Empty;
-                    break;
-                case Models.DataTypes.Length.UnitOptions.Percentage:
-                    lengthUnit = "%";
                     break;
                 default:
                     lengthUnit = Enum.GetName(typeof(Length.UnitOptions), length.Unit).ToLower();
