@@ -1,4 +1,6 @@
-﻿namespace DotSvg.Models.DataTypes
+﻿using DotSvg.Models.Attributes;
+
+namespace DotSvg.Models.DataTypes
 {
     public struct Angle
     {
@@ -21,8 +23,11 @@
 
         public enum UnitOptions
         {
+            [SvgProperty("deg")]
             Degrees,
+            [SvgProperty("grad")]
             Grads,
+            [SvgProperty("rad")]
             Radians
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.489
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotSvg.Sample", "DotSvg.Sample\DotSvg.Sample.csproj", "{378C21E1-DF36-4448-989C-52D08BCB1D0B}"
 EndProject
@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotSvg.Presentation.Razor",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotSvg.Models", "src\DotSvg.Models\DotSvg.Models.csproj", "{A9A99D49-8E8B-4EC6-9936-C00D5F64EA33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotSvg.Domain", "src\DotSvg.Domain\DotSvg.Domain.csproj", "{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotSvg.Domain", "src\DotSvg.Domain\DotSvg.Domain.csproj", "{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8A155115-F19A-4749-BCA4-F4F9B32E14D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotSvg.Domain.Tests", "test\DotSvg.Domain.Tests\DotSvg.Domain.Tests.csproj", "{26948D4D-529D-47E2-86EB-2EF372CA95E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26948D4D-529D-47E2-86EB-2EF372CA95E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26948D4D-529D-47E2-86EB-2EF372CA95E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26948D4D-529D-47E2-86EB-2EF372CA95E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26948D4D-529D-47E2-86EB-2EF372CA95E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +51,7 @@ Global
 		{970DE3AE-6B2B-4828-AF61-928FFEB721FF} = {E8F2E8A5-6E80-4146-AECF-149F2FC60A84}
 		{A9A99D49-8E8B-4EC6-9936-C00D5F64EA33} = {E8F2E8A5-6E80-4146-AECF-149F2FC60A84}
 		{79A80AA8-C1DE-40D3-8F18-EC9BF7A7B1F2} = {E8F2E8A5-6E80-4146-AECF-149F2FC60A84}
+		{26948D4D-529D-47E2-86EB-2EF372CA95E4} = {8A155115-F19A-4749-BCA4-F4F9B32E14D7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6DFA2C33-BA87-40DC-A198-7C7A560F6FE8}
