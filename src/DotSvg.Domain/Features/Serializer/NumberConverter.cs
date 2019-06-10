@@ -13,10 +13,10 @@ namespace DotSvg.Domain.Features.Serializer
 
         public string Convert(object value)
         {
-            if (!(value is float number))
-                return default;
+            if (value is float number)
+                return Convert(number);
 
-            return Convert(number);
+            return default;
         }
 
         public string Convert(float value) => value.ToString(Culture);

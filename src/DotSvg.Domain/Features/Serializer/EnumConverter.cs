@@ -12,10 +12,10 @@ namespace DotSvg.Domain.Features.Serializer
 
         public string Convert(object value)
         {
-            if (value == default || !CanConvert(value.GetType()))
-                return null;
+            if (value != default && !CanConvert(value.GetType()))
+                return Convert(value as Enum);
 
-            return Convert(value as Enum);
+            return default;
         }
 
         public string Convert(Enum value)

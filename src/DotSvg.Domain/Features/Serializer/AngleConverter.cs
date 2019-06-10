@@ -22,10 +22,10 @@ namespace DotSvg.Domain.Features.Serializer
 
         public string Convert(object value)
         {
-            if (!(value is Angle angle))
-                return default;
+            if (value is Angle angle)
+                return Convert(angle);
 
-            return Convert(angle);
+            return default;
         }
 
         public string Convert(Angle angle)
