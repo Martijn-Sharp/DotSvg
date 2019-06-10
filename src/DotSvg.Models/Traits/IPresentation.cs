@@ -1,17 +1,19 @@
-﻿using DotSvg.Models.DataTypes;
+﻿using System;
+using DotSvg.Models.DataTypes;
 using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Traits.Enumerations;
 
 namespace DotSvg.Models.Traits
 {
+    /// <remarks>Source: https://developer.mozilla.org/nl/docs/Web/SVG/Attribute/Presentation </remarks>
     public interface IPresentation
     {
         AlignmentBaselineOptions? AlignmentBaseline { get; set; }
 
-        // TODO: has both enumeration AND length
+        /// <remarks>This property is going to be deprecated, I'll leave the string-type as it is</remarks>
         string BaselineShift { get; set; }
 
-        string ClipPath { get; set; }
+        CompositeProperty<Uri, IBasicShape, InheritKeyword> ClipPath { get; set; }
 
         RuleOptions? ClipRule { get; set; }
 
@@ -47,7 +49,7 @@ namespace DotSvg.Models.Traits
 
         string FontSize { get; set; }
 
-        CompositeProperty<float, NoneKeyword, InheritKeyword>? FontSizeAdjust { get; set; }
+        CompositeProperty<float, InheritKeyword>? FontSizeAdjust { get; set; }
 
         string FontStretch { get; set; }
 

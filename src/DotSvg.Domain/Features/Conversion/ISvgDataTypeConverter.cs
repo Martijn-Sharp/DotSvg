@@ -7,6 +7,8 @@ namespace DotSvg.Domain.Features.Conversion
     {
         string Angle(Angle angle);
 
+        string BasicShape(IBasicShape basicShape);
+
         string ClockValue(TimeSpan span);
         
         string Frequency(Frequency frequency);

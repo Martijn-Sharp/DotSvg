@@ -1,8 +1,6 @@
 ﻿namespace DotSvg.Models.SpecialProperties
 {
-    public struct CompositeProperty<T1, T2> : ICompositeProperty 
-        where T1 : struct 
-        where T2 : struct
+    public struct CompositeProperty<T1, T2> : ICompositeProperty
     {
         public CompositeProperty(T1 t1)
         {
@@ -22,9 +20,6 @@
     }
 
     public struct CompositeProperty<T1, T2, T3> : ICompositeProperty
-        where T1 : struct
-        where T2 : struct
-        where T3 : struct
     {
         public CompositeProperty(T1 t1)
         {

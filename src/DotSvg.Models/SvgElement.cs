@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using DotSvg.Models.DataTypes;
 using DotSvg.Models.SpecialProperties;
 using DotSvg.Models.Traits;
@@ -12,10 +13,11 @@ namespace DotSvg.Models
         public AlignmentBaselineOptions? AlignmentBaseline { get; set; }
 
         [DisplayName("baseline-shift")]
+        [Obsolete("This property is going to be deprecated and authors are advised to use vertical-align instead.")]
         public string BaselineShift { get; set; }
 
         [DisplayName("clip-path")]
-        public string ClipPath { get; set; }
+        public CompositeProperty<Uri, IBasicShape, InheritKeyword> ClipPath { get; set; }
 
         [DisplayName("clip-rule")]
         public RuleOptions? ClipRule { get; set; }
@@ -63,7 +65,7 @@ namespace DotSvg.Models
         public string FontSize { get; set; }
 
         [DisplayName("font-size-adjust")]
-        public CompositeProperty<float, NoneKeyword, InheritKeyword>? FontSizeAdjust { get; set; }
+        public CompositeProperty<float, InheritKeyword>? FontSizeAdjust { get; set; }
 
         [DisplayName("font-stretch")]
         public string FontStretch { get; set; }

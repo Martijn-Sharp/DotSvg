@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text;
 using DotSvg.Models.DataTypes;
+using DotSvg.Models.Enumerations;
 
 namespace DotSvg.Domain.Features.Conversion
 {
@@ -29,7 +30,26 @@ namespace DotSvg.Domain.Features.Conversion
 
             return Number(angle.Number) + angleUnit;
         }
-        
+
+        public string BasicShape(IBasicShape basicShape)
+        {
+            var stringBuilder = new StringBuilder(basicShape.Function);
+            stringBuilder.Append("(");
+            foreach (var parameter in basicShape.Parameters)
+            {
+                if (!string.IsNullOrEmpty(parameter.Function))
+                    stringBuilder.Append($" {parameter.Function}");
+
+                stringBuilder.Append($" {parameter.Value}");
+            }
+
+            stringBuilder.Append(")");
+            if (basicShape.GeometryBox.HasValue)
+                stringBuilder.Append($" {Enum.GetName(typeof(BoxOptions), basicShape.GeometryBox.Value).ToLower()}");
+
+            return stringBuilder.ToString();
+        }
+
         public string ClockValue(TimeSpan span)
         {
             var stringBuilder = new StringBuilder();
