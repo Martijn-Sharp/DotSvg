@@ -1,9 +1,10 @@
 ﻿using System;
-using DotSvg.Domain.Features.Serializer;
+using DotSvg.Domain.Features.Serializer.Abstractions;
+using DotSvg.Domain.Features.Serializer.Converters;
 using DotSvg.Models.Attributes;
 using Xunit;
 
-namespace DotSvg.Domain.Tests.Features.Serializer
+namespace DotSvg.Domain.Tests.Features.Serializer.Converters
 {
     public class EnumConverterTests
     {
@@ -15,24 +16,23 @@ namespace DotSvg.Domain.Tests.Features.Serializer
             Converter = new EnumConverter();
         }
 
-        protected ISvgTypeConverter Converter { get; }
+        protected EnumConverter Converter { get; }
 
         [Theory]
-        [InlineData(NonAttributeEnum.First)]
-        [InlineData(EnumWithAttribute.Third)]
-        public void EnumTypeShouldBeAllowed(Enum value)
+        [InlineData(typeof(NonAttributeEnum))]
+        [InlineData(typeof(EnumWithAttribute))]
+        public void EnumTypeShouldBeAllowed(Type type)
         {
-            Assert.True(Converter.CanConvert(value.GetType()));
+            Assert.True(Converter.CanConvert(type));
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(1)]
-        [InlineData(1f)]
-        [InlineData(1d)]
-        public void NonEnumTypeShouldNotBeAllowed(object value)
+        [InlineData(typeof(string))]
+        [InlineData(typeof(EnumConverterTests))]
+        [InlineData(typeof(int))]
+        public void NonEnumTypeShouldNotBeAllowed(Type type)
         {
-            Assert.False(Converter.CanConvert(value.GetType()));
+            Assert.False(Converter.CanConvert(type));
         }
 
         [Theory]

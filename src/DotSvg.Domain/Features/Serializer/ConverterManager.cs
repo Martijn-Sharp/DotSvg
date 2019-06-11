@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DotSvg.Domain.Features.Serializer.Abstractions;
 
 namespace DotSvg.Domain.Features.Serializer
 {

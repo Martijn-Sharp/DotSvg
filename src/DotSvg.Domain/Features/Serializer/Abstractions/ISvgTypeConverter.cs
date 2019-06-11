@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DotSvg.Domain.Features.Serializer
+namespace DotSvg.Domain.Features.Serializer.Abstractions
 {
     public interface ISvgTypeConverter
     {

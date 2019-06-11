@@ -1,8 +1,9 @@
-﻿using DotSvg.Domain.Features.Serializer;
+﻿using System;
+using DotSvg.Domain.Features.Serializer.Converters;
 using DotSvg.Models.DataTypes;
 using Xunit;
 
-namespace DotSvg.Domain.Tests.Features.Serializer
+namespace DotSvg.Domain.Tests.Features.Serializer.Converters
 {
     public class AngleConverterTests
     {
@@ -16,17 +17,16 @@ namespace DotSvg.Domain.Tests.Features.Serializer
         [Fact]
         public void AngleTypeShouldBeAllowed()
         {
-            var angle = new Angle();
-            Assert.True(Converter.CanConvert(angle.GetType()));
+            Assert.True(Converter.CanConvert(typeof(Angle)));
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(1)]
-        [InlineData(1d)]
-        public void NonAngleTypeShouldNotBeAllowed(object value)
+        [InlineData(typeof(string))]
+        [InlineData(typeof(AngleConverterTests))]
+        [InlineData(typeof(int))]
+        public void NonAngleTypeShouldNotBeAllowed(Type type)
         {
-            Assert.False(Converter.CanConvert(value.GetType()));
+            Assert.False(Converter.CanConvert(type));
         }
 
         [Theory]

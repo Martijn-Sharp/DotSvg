@@ -1,9 +1,11 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
-using DotSvg.Domain.Features.Serializer;
+using DotSvg.Domain.Features.Serializer.Abstractions;
+using DotSvg.Domain.Features.Serializer.Converters;
 using Xunit;
 
-namespace DotSvg.Domain.Tests.Features.Serializer
+namespace DotSvg.Domain.Tests.Features.Serializer.Converters
 {
     public class NumberConverterTests
     {
@@ -17,16 +19,16 @@ namespace DotSvg.Domain.Tests.Features.Serializer
         [Fact]
         public void FloatTypeShouldBeAllowed()
         {
-            Assert.True(Converter.CanConvert(1.0f.GetType()));
+            Assert.True(Converter.CanConvert(typeof(float)));
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(1)]
-        [InlineData(1d)]
-        public void NonFloatTypeShouldNotBeAllowed(object value)
+        [InlineData(typeof(string))]
+        [InlineData(typeof(EnumConverterTests))]
+        [InlineData(typeof(int))]
+        public void NonFloatTypeShouldNotBeAllowed(Type type)
         {
-            Assert.False(Converter.CanConvert(value.GetType()));
+            Assert.False(Converter.CanConvert(type));
         }
 
         [Theory]

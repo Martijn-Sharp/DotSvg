@@ -1,4 +1,6 @@
-﻿namespace DotSvg.Models.DataTypes
+﻿using DotSvg.Models.Attributes;
+
+namespace DotSvg.Models.DataTypes
 {
     public struct Frequency
     {
@@ -19,7 +21,9 @@
 
         public enum UnitOptions
         {
+            [SvgProperty("Hz")]
             Hertz,
+            [SvgProperty("kHz")]
             KiloHertz
         }
     }

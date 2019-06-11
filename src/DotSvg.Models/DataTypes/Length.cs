@@ -1,4 +1,6 @@
-﻿namespace DotSvg.Models.DataTypes
+﻿using DotSvg.Models.Attributes;
+
+namespace DotSvg.Models.DataTypes
 {
     public struct Length
     {
@@ -24,6 +26,7 @@
 
         public enum UnitOptions
         {
+            [SvgProperty("")]
             Unspecified,
             Em,
             Ex,
@@ -32,7 +35,9 @@
             Cm,
             Mm,
             Pt,
-            Pc
+            Pc,
+            [SvgProperty("%")]
+            Percentage
         }
     }
 }

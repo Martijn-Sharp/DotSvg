@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Text;
+using DotSvg.Domain.Features.Serializer.Abstractions;
 using DotSvg.Models.DataTypes;
 
-namespace DotSvg.Domain.Features.Serializer
+namespace DotSvg.Domain.Features.Serializer.Converters
 {
     public class AngleConverter : ISvgTypeConverter, ISvgTypeConverter<Angle>
     {

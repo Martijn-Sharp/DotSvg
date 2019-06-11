@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using DotSvg.Domain.Features.Serializer.Abstractions;
 
-namespace DotSvg.Domain.Features.Serializer
+namespace DotSvg.Domain.Features.Serializer.Converters
 {
     public class NumberConverter : ISvgTypeConverter, ISvgTypeConverter<float>
     {

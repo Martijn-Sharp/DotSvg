@@ -1,46 +1,12 @@
 ﻿using System;
-
-namespace DotSvg.Domain.Features.Serializer
+namespace DotSvg.Domain.Features.Serializer.Abstractions
 {
-    public class ClockValueConverter : ISvgTypeConverter, ISvgTypeConverter<TimeSpan>
-    {
-        public bool CanConvert(Type type) => type == typeof(TimeSpan);
-
-        public string Convert(object value)
-        {
-            if (value is TimeSpan span)
-                return Convert(span);
-
-            return default;
-        }
-
-        public string Convert(TimeSpan value)
-        {
-            var strategy = ChooseStrategy(value);
-            return strategy.Execute(value);
-        }
-
-        public IClockValueStrategy ChooseStrategy(TimeSpan timeSpan)
-        {
-            bool hasHours = timeSpan.Hours > 0;
-            bool hasMinutes = timeSpan.Minutes > 0;
-            bool hasSeconds = timeSpan.Seconds > 0;
-            if((hasHours && hasMinutes) || (hasHours && hasSeconds))
-                return new FullClockStrategy();
-
-            if(hasMinutes && hasSeconds)
-                return new PartialClockStrategy();
-
-            return new TimecountStrategy();
-        }
-    }
-
-    public interface IClockValueStrategy
+    public interface IClockValueConverterStrategy
     {
         string Execute(TimeSpan timeSpan);
     }
 
-    public class FullClockStrategy : IClockValueStrategy
+    public class FullClockConverterStrategy : IClockValueConverterStrategy
     {
         public string Execute(TimeSpan timeSpan)
         {
@@ -52,7 +18,7 @@ namespace DotSvg.Domain.Features.Serializer
         }
     }
 
-    public class PartialClockStrategy : IClockValueStrategy
+    public class PartialClockConverterStrategy : IClockValueConverterStrategy
     {
         public string Execute(TimeSpan timeSpan)
         {
@@ -64,7 +30,7 @@ namespace DotSvg.Domain.Features.Serializer
         }
     }
 
-    public class TimecountStrategy : IClockValueStrategy
+    public class TimecountConverterStrategy : IClockValueConverterStrategy
     {
         public string Execute(TimeSpan timeSpan)
         {
@@ -74,7 +40,7 @@ namespace DotSvg.Domain.Features.Serializer
             if (timeSpan.Minutes > 0)
                 return $"{timeSpan.Minutes}min";
 
-            if(timeSpan.Seconds > 0)
+            if (timeSpan.Seconds > 0)
                 if (timeSpan.Milliseconds > 0)
                     return $"{timeSpan.Seconds:00}.{timeSpan.Milliseconds.ToString("000").TrimEnd('0')}";
                 else

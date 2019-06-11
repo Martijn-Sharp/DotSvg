@@ -1,7 +1,8 @@
 ﻿using System;
+using DotSvg.Domain.Features.Serializer.Abstractions;
 using DotSvg.Models.Attributes;
 
-namespace DotSvg.Domain.Features.Serializer
+namespace DotSvg.Domain.Features.Serializer.Converters
 {
     public class EnumConverter : ISvgTypeConverter, ISvgTypeConverter<Enum>
     {
@@ -12,7 +13,7 @@ namespace DotSvg.Domain.Features.Serializer
 
         public string Convert(object value)
         {
-            if (value != default && !CanConvert(value.GetType()))
+            if (CanConvert(value.GetType()))
                 return Convert(value as Enum);
 
             return default;
