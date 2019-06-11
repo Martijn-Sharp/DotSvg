@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Threading;
 using DotSvg.Domain.Features.Serializer.Abstractions;
 using DotSvg.Domain.Features.Serializer.Converters;
+using DotSvg.Models.DataTypes;
 using Xunit;
 
 namespace DotSvg.Domain.Tests.Features.Serializer.Converters
@@ -16,17 +17,20 @@ namespace DotSvg.Domain.Tests.Features.Serializer.Converters
 
         protected ISvgTypeConverter Converter { get; }
 
-        [Fact]
-        public void FloatTypeShouldBeAllowed()
+        [Theory]
+        [InlineData(typeof(float))]
+        [InlineData(typeof(Opacity))]
+        [InlineData(typeof(Percentage))]
+        public void NumberTypesShouldBeAllowed(Type type)
         {
-            Assert.True(Converter.CanConvert(typeof(float)));
+            Assert.True(Converter.CanConvert(type));
         }
 
         [Theory]
         [InlineData(typeof(string))]
         [InlineData(typeof(EnumConverterTests))]
         [InlineData(typeof(int))]
-        public void NonFloatTypeShouldNotBeAllowed(Type type)
+        public void NonNumberTypeShouldNotBeAllowed(Type type)
         {
             Assert.False(Converter.CanConvert(type));
         }
@@ -35,7 +39,7 @@ namespace DotSvg.Domain.Tests.Features.Serializer.Converters
         [InlineData(1f, "1", "en")]
         [InlineData(1.01f, "1.01", "en")]
         [InlineData(1.01f, "1.01", "nl")]
-        public void FloatShouldBeFormattedInEnglishNotation(float value, string expected, string cultureName)
+        public void NumberShouldBeFormattedInEnglishNotation(float value, string expected, string cultureName)
         {
             var cultureToRestore = CultureInfo.CurrentCulture;
             var testCulture = CultureInfo.GetCultureInfo(cultureName);
@@ -51,7 +55,7 @@ namespace DotSvg.Domain.Tests.Features.Serializer.Converters
         [InlineData("")]
         [InlineData(1)]
         [InlineData(1d)]
-        public void NonFloatShouldReturnNull(object value)
+        public void NonNumberShouldReturnNull(object value)
         {
             var actual = Converter.Convert(value);
             Assert.Null(actual);
