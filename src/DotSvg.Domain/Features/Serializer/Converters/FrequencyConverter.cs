@@ -18,7 +18,7 @@ namespace DotSvg.Domain.Features.Serializer.Converters
 
         protected ISvgTypeConverter<Enum> EnumConverter { get; }
 
-        public bool CanConvert(Type type) => type.IsAssignableFrom(_frequencyType);
+        public bool CanConvert(Type type) => type == _frequencyType;
 
         public string Convert(object value)
         {
@@ -28,9 +28,9 @@ namespace DotSvg.Domain.Features.Serializer.Converters
             return default;
         }
 
-        public string Convert(Frequency value)
+        public string Convert(Frequency frequency)
         {
-            return NumberConverter.Convert(value.Number) + EnumConverter.Convert(value.Unit);
+            return NumberConverter.Convert(frequency.Number) + EnumConverter.Convert(frequency.Unit);
         }
     }
 }

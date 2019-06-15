@@ -28,10 +28,10 @@ namespace DotSvg.Domain.Features.Serializer.Converters
             return default;
         }
 
-        public string Convert(float value) => value.ToString(Culture);
+        public string Convert(float @float) => @float.ToString(Culture);
 
-        public string Convert(Opacity value) => Convert(value.Number);
+        public string Convert(Opacity opacity) => Convert(opacity.Number);
 
-        public string Convert(Percentage value) => $"{Convert(value.Number)}%";
+        public string Convert(Percentage percentage) => $"{Convert(percentage.Number)}%";
     }
 }

@@ -18,7 +18,7 @@ namespace DotSvg.Domain.Features.Serializer.Converters
 
         protected ISvgTypeConverter<Enum> EnumConverter { get; }
 
-        public bool CanConvert(Type type) => type.IsAssignableFrom(_lengthType);
+        public bool CanConvert(Type type) => type == _lengthType;
 
         public string Convert(object value)
         {
@@ -28,9 +28,9 @@ namespace DotSvg.Domain.Features.Serializer.Converters
             return default;
         }
 
-        public string Convert(Length value)
+        public string Convert(Length length)
         {
-            return NumberConverter.Convert(value.Number) + EnumConverter.Convert(value.Unit);
+            return NumberConverter.Convert(length.Number) + EnumConverter.Convert(length.Unit);
         }
     }
 }

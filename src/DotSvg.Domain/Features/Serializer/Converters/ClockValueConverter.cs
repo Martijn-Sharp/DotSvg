@@ -15,10 +15,10 @@ namespace DotSvg.Domain.Features.Serializer.Converters
             return default;
         }
 
-        public string Convert(TimeSpan value)
+        public string Convert(TimeSpan timeSpan)
         {
-            var strategy = ChooseStrategy(value);
-            return strategy.Execute(value);
+            var strategy = ChooseStrategy(timeSpan);
+            return strategy.Execute(timeSpan);
         }
 
         public IClockValueConverterStrategy ChooseStrategy(TimeSpan timeSpan)

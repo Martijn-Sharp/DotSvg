@@ -4,11 +4,11 @@ using DotSvg.Models.DataTypes;
 
 namespace DotSvg.Domain.Features.Serializer.Converters
 {
-    public class AngleConverter : ISvgTypeConverter, ISvgTypeConverter<Angle>
+    public class TimeConverter : ISvgTypeConverter, ISvgTypeConverter<Time>
     {
-        private readonly Type _angleType = typeof(Angle);
+        private readonly Type _timeType = typeof(Time);
 
-        public AngleConverter(ISvgTypeConverter<float> numberConverter, ISvgTypeConverter<Enum> enumConverter)
+        public TimeConverter(ISvgTypeConverter<float> numberConverter, ISvgTypeConverter<Enum> enumConverter)
         {
             NumberConverter = numberConverter;
             EnumConverter = enumConverter;
@@ -18,19 +18,19 @@ namespace DotSvg.Domain.Features.Serializer.Converters
 
         protected ISvgTypeConverter<Enum> EnumConverter { get; }
 
-        public virtual bool CanConvert(Type type) => type == _angleType;
+        public bool CanConvert(Type type) => type == _timeType;
 
         public string Convert(object value)
         {
-            if (value is Angle angle)
-                return Convert(angle);
+            if (value is Time time)
+                return Convert(time);
 
             return default;
         }
 
-        public string Convert(Angle angle)
+        public string Convert(Time time)
         {
-            return NumberConverter.Convert(angle.Number) + EnumConverter.Convert(angle.Unit);
+            return NumberConverter.Convert(time.Number) + EnumConverter.Convert(time.Unit);
         }
     }
 }

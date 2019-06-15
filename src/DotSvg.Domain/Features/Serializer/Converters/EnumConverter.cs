@@ -19,18 +19,18 @@ namespace DotSvg.Domain.Features.Serializer.Converters
             return default;
         }
 
-        public string Convert(Enum value)
+        public string Convert(Enum @enum)
         {
-            if (HasSvgProperty(value, out var attribute))
+            if (HasSvgProperty(@enum, out var attribute))
                 return attribute.PropertyName;
 
-            return Enum.GetName(value.GetType(), value).ToLower();
+            return Enum.GetName(@enum.GetType(), @enum).ToLower();
         }
 
-        public bool HasSvgProperty(object value, out SvgPropertyAttribute attribute)
+        public bool HasSvgProperty(object @enum, out SvgPropertyAttribute attribute)
         {
-            var type = value.GetType();
-            var memInfo = type.GetMember(value.ToString());
+            var type = @enum.GetType();
+            var memInfo = type.GetMember(@enum.ToString());
             var attributes = memInfo[0].GetCustomAttributes(typeof(SvgPropertyAttribute), false);
             if (attributes.Length <= 0)
             {
