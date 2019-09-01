@@ -80,9 +80,14 @@ namespace DotSvg.Models
         [DisplayName("image-rendering")]
         public RenderingOptions? ImageRendering { get; set; }
 
+        public CompositeProperty<ZeroToOne, Percentage>? Opacity { get; set; }
+
         public Paint? Stroke { get; set; }
 
         [DisplayName("stroke-width")]
         public Length? StrokeWidth { get; set; }
+
+        [DisplayName("text-anchor")]
+        public TextAnchorOptions? TextAnchor { get; set; }
     }
 }

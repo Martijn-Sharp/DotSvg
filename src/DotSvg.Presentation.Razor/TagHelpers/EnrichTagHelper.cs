@@ -41,10 +41,10 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     continue;
 
                 if (value is Enum)
-                    value = Enum.GetName(value.GetType(), value) ?? string.Empty;
-
-                if(value is string valueString)
-                    value = char.ToLowerInvariant(valueString[0]) + valueString.Substring(1);
+                {
+                    string enumName = Enum.GetName(value.GetType(), value) ?? string.Empty;
+                    value = char.ToLowerInvariant(enumName[0]) + enumName.Substring(1);
+                }
 
                 var result = Convert(value);
                 if (property.CustomAttributes.Any(x => x.AttributeType == typeof(DisplayNameAttribute)))
@@ -70,11 +70,9 @@ namespace DotSvg.Presentation.Razor.TagHelpers
                     return char.ToLowerInvariant(enumerationValue[0]) + enumerationValue.Substring(1);
                 case Length length:
                     return Converter.Length(length);
-                case string value when value.Length > 0:
-                    return char.ToLowerInvariant(value[0]) + value.Substring(1);
                 case Percentage percentage:
                     return Converter.Percentage(percentage.Number);
-                case IEnumerable enumerable:
+                case IEnumerable enumerable when !(enumerable is string):
                     var stringBuilder = new StringBuilder();
                     foreach (var item in enumerable)
                         stringBuilder.Append(Convert(item) + " ");

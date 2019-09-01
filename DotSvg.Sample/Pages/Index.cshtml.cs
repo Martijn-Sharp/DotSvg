@@ -51,7 +51,7 @@ namespace DotSvg.Sample.Pages
                 new Path { Fill = Paint.Color(X11Colors.green), Definition = greenPath }
             };
 
-            Text = new Text { X = 0, Y = 0, TextLength = 10, LengthAdjust = LengthAdjustOptions.SpacingAndGlyphs};
+            Text = new Text { X = 0, Y = 0 };
         }
 
         public SvgRoot Svg { get; set; }

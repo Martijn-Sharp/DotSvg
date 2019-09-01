@@ -1,5 +1,6 @@
 ﻿using System;
 using DotSvg.Models.Enumerations;
+using DotSvg.Models.Traits.Enumerations;
 
 namespace DotSvg.Models.DataTypes
 {
@@ -9,6 +10,8 @@ namespace DotSvg.Models.DataTypes
         {
             Value = value;
         }
+
+        public static Paint Transparent() => new Paint("transparent");
         
         public static Paint Url(string reference, X11Colors? color = null)
         {
@@ -44,11 +47,31 @@ namespace DotSvg.Models.DataTypes
             return new Paint(contextOption);
         }
 
+        public static Paint AnimateFill(AnimateFillOptions animateFill)
+        {
+            string option;
+            switch (animateFill)
+            {
+                case AnimateFillOptions.None:
+                    option = "none";
+                    break;
+                case AnimateFillOptions.Freeze:
+                    option = "freeze";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(animateFill), animateFill, null);
+            }
+
+            return new Paint(option);
+        }
+
         public string Value { get; }
 
         public static implicit operator Paint(Color color) => Color(color);
 
         public static implicit operator Paint(ContextOptions contextOption) => Context(contextOption);
+
+        public static implicit operator Paint(AnimateFillOptions animateFillOption) => AnimateFill(animateFillOption);
 
         public override string ToString()
         {

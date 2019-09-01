@@ -1,0 +1,43 @@
+﻿@page
+@model DonutDemoModel
+@foreach (var donut in Model.Donuts)
+{
+    <div class="svg-box">
+        <svg enrich="@Model.Svg">
+            <style>
+                .small {
+                    font: 0.3px sans-serif;
+                }
+            </style>
+
+            <circle enrich="@donut.BaseCircle"></circle>
+
+            @foreach (var fragment in donut.Fragments)
+            {
+                <path enrich="@fragment.Path">
+                    @if (!string.IsNullOrWhiteSpace(fragment.Title))
+                    {
+                        <title>@fragment.Title</title>
+                    }
+
+                    <animate enrich="@fragment.PathAnimation"></animate>
+                </path>
+
+                if (fragment.BackupCircle != null)
+                {
+                    <circle enrich="@fragment.BackupCircle">
+                        <animate enrich="@fragment.BackupCircleAnimation"></animate>
+                        @if (!string.IsNullOrWhiteSpace(fragment.Title))
+                        {
+                            <title>@fragment.Title</title>
+                        }
+                    </circle>
+                }
+            }
+
+            <text enrich="@Model.TextElement" class="small">
+                @donut.Text
+            </text>
+        </svg>
+    </div>
+}

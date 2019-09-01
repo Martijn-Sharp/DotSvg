@@ -64,5 +64,7 @@ namespace DotSvg.Models.Traits
         Paint? Stroke { get; set; }
 
         Length? StrokeWidth { get; set; }
+
+        TextAnchorOptions? TextAnchor { get; set; }
     }
 }
